@@ -1,0 +1,300 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://addons/pixel_ever/grid.png" type="Texture" id=1]
+[ext_resource path="res://addons/pixel_ever/sprite_editor.gd" type="Script" id=2]
+[ext_resource path="res://addons/pixel_ever/empty.png" type="Texture" id=3]
+[ext_resource path="res://addons/pixel_ever/grp_tool.tres" type="ButtonGroup" id=4]
+[ext_resource path="res://addons/pixel_ever/fill.png" type="Texture" id=5]
+[ext_resource path="res://addons/pixel_ever/save.png" type="Texture" id=6]
+[ext_resource path="res://addons/pixel_ever/draw.png" type="Texture" id=8]
+[ext_resource path="res://addons/pixel_ever/pick.png" type="Texture" id=9]
+[ext_resource path="res://addons/pixel_ever/top_grid.gd" type="Script" id=10]
+[ext_resource path="res://addons/pixel_ever/pal/bubblegum-16.png" type="Texture" id=11]
+[ext_resource path="res://addons/pixel_ever/buck.png" type="Texture" id=12]
+[ext_resource path="res://addons/pixel_ever/crop.png" type="Texture" id=13]
+
+[node name="sprite_editor" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 400 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color( 0.176471, 0.14902, 0.14902, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroll" type="ScrollContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hb" type="HBoxContainer" parent="scroll"]
+margin_right = 1024.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="vb" type="VBoxContainer" parent="scroll/hb"]
+margin_right = 128.0
+margin_bottom = 400.0
+
+[node name="Label2" type="Label" parent="scroll/hb/vb"]
+margin_right = 128.0
+margin_bottom = 23.0
+rect_min_size = Vector2( 0, 23 )
+text = "pos:"
+align = 1
+valign = 1
+
+[node name="Button0" type="Button" parent="scroll/hb/vb"]
+margin_top = 27.0
+margin_right = 128.0
+margin_bottom = 47.0
+rect_min_size = Vector2( 120, 0 )
+toggle_mode = true
+pressed = true
+group = ExtResource( 4 )
+text = "Draw"
+icon = ExtResource( 8 )
+expand_icon = true
+
+[node name="Button1" type="Button" parent="scroll/hb/vb"]
+margin_top = 51.0
+margin_right = 128.0
+margin_bottom = 71.0
+rect_min_size = Vector2( 120, 0 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "Pick Color"
+icon = ExtResource( 9 )
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="scroll/hb/vb"]
+margin_top = 75.0
+margin_right = 128.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 120, 0 )
+toggle_mode = true
+group = ExtResource( 4 )
+text = "Replace Color"
+icon = ExtResource( 5 )
+expand_icon = true
+
+[node name="Button3" type="Button" parent="scroll/hb/vb"]
+margin_top = 99.0
+margin_right = 128.0
+margin_bottom = 119.0
+toggle_mode = true
+group = ExtResource( 4 )
+text = "Paint Bucket"
+icon = ExtResource( 12 )
+expand_icon = true
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="scroll/hb/vb"]
+margin_top = 123.0
+margin_right = 128.0
+margin_bottom = 143.0
+rect_min_size = Vector2( 120, 0 )
+text = "left"
+
+[node name="pal" type="TextureRect" parent="scroll/hb/vb"]
+margin_top = 147.0
+margin_right = 128.0
+margin_bottom = 275.0
+texture = ExtResource( 11 )
+
+[node name="pal_list" type="MenuButton" parent="scroll/hb/vb"]
+margin_top = 279.0
+margin_right = 128.0
+margin_bottom = 305.0
+rect_min_size = Vector2( 0, 26 )
+text = "palettes"
+flat = false
+items = [ "bubblegum-16.png", null, 2, false, false, 0, 0, null, "", false, "html-color.png", null, 2, false, false, 1, 0, null, "", false, "lospecCDI-32.png", null, 2, false, false, 2, 0, null, "", false, "pico8-16.png", null, 2, false, false, 3, 0, null, "", false, "resurrect-32.png", null, 2, false, false, 4, 0, null, "", false ]
+
+[node name="option" type="OptionButton" parent="scroll/hb/vb"]
+visible = false
+margin_top = 246.0
+margin_right = 128.0
+margin_bottom = 266.0
+text = "32 X 32"
+items = [ "4 X 4", null, false, 0, null, "8 X 8", null, false, 1, null, "16 X 16", null, false, 2, null, "32 X 32", null, false, 3, null, "64 X 64", null, false, 4, null, "128 X 128", null, false, 5, null, "256 X 256", null, false, 6, null ]
+selected = 3
+
+[node name="seprator" type="Control" parent="scroll/hb"]
+margin_left = 132.0
+margin_right = 140.0
+margin_bottom = 400.0
+rect_min_size = Vector2( 8, 0 )
+
+[node name="vb2" type="VBoxContainer" parent="scroll/hb"]
+margin_left = 144.0
+margin_right = 1024.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="hb2" type="HBoxContainer" parent="scroll/hb/vb2"]
+margin_right = 880.0
+margin_bottom = 24.0
+
+[node name="grid" type="Button" parent="scroll/hb/vb2/hb2"]
+margin_right = 90.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 90, 0 )
+toggle_mode = true
+pressed = true
+text = "Grid"
+icon = ExtResource( 1 )
+expand_icon = true
+
+[node name="Label" type="Label" parent="scroll/hb/vb2/hb2"]
+margin_left = 94.0
+margin_top = 5.0
+margin_right = 147.0
+margin_bottom = 19.0
+text = "size XY: "
+
+[node name="size_x" type="LineEdit" parent="scroll/hb/vb2/hb2"]
+margin_left = 151.0
+margin_right = 231.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 80, 0 )
+text = "32"
+align = 1
+
+[node name="size_y" type="LineEdit" parent="scroll/hb/vb2/hb2"]
+margin_left = 235.0
+margin_right = 315.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 80, 0 )
+text = "32"
+align = 1
+
+[node name="resize" type="Button" parent="scroll/hb/vb2/hb2"]
+margin_left = 319.0
+margin_right = 409.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 90, 0 )
+text = "resize"
+icon = ExtResource( 13 )
+expand_icon = true
+
+[node name="zoom" type="Label" parent="scroll/hb/vb2/hb2"]
+margin_left = 413.0
+margin_top = 5.0
+margin_right = 503.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 90, 0 )
+text = "Zoom: 8"
+align = 1
+
+[node name="HSlider" type="HSlider" parent="scroll/hb/vb2/hb2"]
+margin_left = 507.0
+margin_top = 4.0
+margin_right = 635.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 128, 0 )
+size_flags_vertical = 4
+min_value = 1.0
+max_value = 64.0
+value = 8.0
+
+[node name="btn_save" type="Button" parent="scroll/hb/vb2/hb2"]
+margin_left = 639.0
+margin_right = 759.0
+margin_bottom = 24.0
+rect_min_size = Vector2( 120, 0 )
+text = "add to sprite"
+icon = ExtResource( 6 )
+expand_icon = true
+
+[node name="sc" type="ScrollContainer" parent="scroll/hb/vb2"]
+margin_top = 28.0
+margin_right = 880.0
+margin_bottom = 400.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center" type="MarginContainer" parent="scroll/hb/vb2/sc"]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_min_size = Vector2( 256, 256 )
+
+[node name="back" type="ColorRect" parent="scroll/hb/vb2/sc/center"]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_clip_content = true
+color = Color( 0.764706, 0.764706, 0.764706, 1 )
+
+[node name="top" type="TextureRect" parent="scroll/hb/vb2/sc/center"]
+margin_right = 256.0
+margin_bottom = 256.0
+rect_clip_content = true
+mouse_default_cursor_shape = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 1
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+grid_color = Color( 0.0431373, 0.32549, 0.760784, 0.2 )
+
+[node name="cursor" type="TextureRect" parent="scroll/hb/vb2/sc/center/top"]
+margin_left = -152.0
+margin_top = -28.0
+margin_right = -144.0
+margin_bottom = -20.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_right = 315.0
+margin_bottom = 232.0
+rect_min_size = Vector2( 180, 63 )
+filters = PoolStringArray( "*.png ; PNG Images" )
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+margin_right = 20.0
+margin_bottom = 20.0
+
+[connection signal="toggled" from="scroll/hb/vb/Button0" to="." method="_on_tool_toggled" binds= [ 0 ]]
+[connection signal="toggled" from="scroll/hb/vb/Button1" to="." method="_on_tool_toggled" binds= [ 1 ]]
+[connection signal="toggled" from="scroll/hb/vb/Button2" to="." method="_on_tool_toggled" binds= [ 2 ]]
+[connection signal="toggled" from="scroll/hb/vb/Button3" to="." method="_on_tool_toggled" binds= [ 3 ]]
+[connection signal="color_changed" from="scroll/hb/vb/ColorPickerButton" to="." method="_on_ColorPickerButton_color_changed"]
+[connection signal="gui_input" from="scroll/hb/vb/pal" to="." method="_on_pal_gui_input"]
+[connection signal="toggled" from="scroll/hb/vb2/hb2/grid" to="." method="_on_grid_toggled"]
+[connection signal="pressed" from="scroll/hb/vb2/hb2/resize" to="." method="_on_resize_pressed"]
+[connection signal="value_changed" from="scroll/hb/vb2/hb2/HSlider" to="." method="_on_HSlider_value_changed"]
+[connection signal="pressed" from="scroll/hb/vb2/hb2/btn_save" to="." method="_on_btn_save_pressed"]
+[connection signal="mouse_entered" from="scroll/hb/vb2/sc/center/top" to="." method="_on_top_mouse_entered"]
+[connection signal="mouse_exited" from="scroll/hb/vb2/sc/center/top" to="." method="_on_top_mouse_exited"]
+[connection signal="confirmed" from="FileDialog" to="." method="_on_FileDialog_confirmed"]
