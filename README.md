@@ -19,10 +19,11 @@ now when you select a sprite node, a tab named "Sprite Editor" is available on b
 ![sprite editor on bottom](https://i.ibb.co/1b7jqnR/Capture-d-cran-2022-01-29-150359.png)
 
 you have 4 tools:
-**Draw** with pen left click for color / right click to erase
-**Pick Color** for select a specific color on sprite
-**Replace Color** for replace alls old color with the new selected color
-**paint Bucket** for fill with the new color 
+- **Draw** with pen left click for color / right click to erase
+- **Pick Color** for select a specific color on sprite
+- **Replace Color** for replace alls old color with the new selected color
+- **paint Bucket** for fill with the new color 
+
 
 you can change the palette on bottom with 4 differents palettes available. you can add new palettes on folder ***addons/pixel_ever/pal/*** and use it directly (respect the 128pixel size format) 
 
